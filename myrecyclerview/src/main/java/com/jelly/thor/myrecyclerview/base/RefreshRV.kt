@@ -144,7 +144,7 @@ class RefreshRV : HeaderAndFooterRV {
     constructor(@NonNull context: Context, @Nullable attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
 
     /**
-     * 添加头部刷新监听
+     * 添加刷新监听
      */
     fun addRefreshListener(refreshListener: RefreshListener, isHashRefresh: Boolean = true, isHashLoad: Boolean = true) {
         mRefreshListener = refreshListener
@@ -246,7 +246,7 @@ class RefreshRV : HeaderAndFooterRV {
     }
 
     /**
-     * 下拉刷新失败
+     * 上拉刷新失败
      */
     fun refreshFooterFailure() {
         mCurrentFooterStatus = PULL_UP_REFRESH_FAILURE
@@ -275,9 +275,9 @@ class RefreshRV : HeaderAndFooterRV {
     }
 
     /**
-     * 没有过多数据
+     * 上拉没有过多数据
      */
-    fun refreshFooterEnd(){
+    fun refreshFooterEnd() {
         mCurrentFooterStatus = PULL_UP_REFRESH_END
         setRefreshFooterShowStyle(mCurrentFooterStatus)
         setRefreshViewMarginBottom(1, mCurrentFooterStatus)

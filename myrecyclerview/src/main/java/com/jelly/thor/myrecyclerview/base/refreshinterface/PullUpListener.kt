@@ -18,7 +18,7 @@ interface PullUpListener {
     }
 
     /**
-     * 获取上拉加载更多的开始View
+     * 获取上拉加载更多的正在加载View
      */
     fun getLoadViewing(context: Context): View? {
         return null
@@ -44,14 +44,6 @@ interface PullUpListener {
     fun getLoadViewEnd(context: Context): View? {
         return null
     }
-
-    /**
-     * 正在上拉
-     *
-     * @param currentDragHeight    当前拖动的高度
-     * @param currentLoadStatus 当前状态
-     */
-    fun onPull(currentDragHeight: Int, currentLoadStatus: Int) {}
 
     /**
      * 正在加载中

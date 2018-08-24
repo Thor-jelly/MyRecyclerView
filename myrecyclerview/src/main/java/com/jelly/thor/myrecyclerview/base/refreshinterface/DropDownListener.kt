@@ -17,7 +17,7 @@ interface DropDownListener {
     }
 
     /**
-     * 获取下拉加载更多的开始View
+     * 获取下拉加载更多的正在加载View
      */
     fun getRefreshViewing(context: Context): View? {
         return null

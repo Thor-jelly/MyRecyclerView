@@ -1,6 +1,6 @@
 package com.jelly.thor.myrecyclerview.annotation
 
-import android.support.annotation.IntDef
+import androidx.annotation.IntDef
 import com.jelly.thor.myrecyclerview.base.RefreshRV.Companion.DROP_DOWN_REFRESH_FAILURE
 import com.jelly.thor.myrecyclerview.base.RefreshRV.Companion.DROP_DOWN_REFRESH_ING
 import com.jelly.thor.myrecyclerview.base.RefreshRV.Companion.DROP_DOWN_REFRESH_START

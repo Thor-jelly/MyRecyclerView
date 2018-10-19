@@ -1,6 +1,6 @@
 package com.jelly.thor.myrecyclerview.annotation;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.view.View;
 
 import java.lang.annotation.Retention;

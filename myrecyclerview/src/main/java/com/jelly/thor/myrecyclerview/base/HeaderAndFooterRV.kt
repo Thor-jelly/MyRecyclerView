@@ -1,10 +1,10 @@
 package com.jelly.thor.myrecyclerview.base
 
 import android.content.Context
-import android.support.annotation.NonNull
-import android.support.annotation.Nullable
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.NonNull
+import androidx.annotation.Nullable
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ import com.jelly.thor.myrecyclerview.utils.CommonUtils
  * 创建人：吴冬冬<br/>
  * 创建时间：2018/8/16 18:54 <br/>
  */
-open class HeaderAndFooterRV : RecyclerView {
+open class HeaderAndFooterRV : androidx.recyclerview.widget.RecyclerView {
     /**
      * 空布局
      */
@@ -28,9 +28,9 @@ open class HeaderAndFooterRV : RecyclerView {
     constructor(@NonNull context: Context, @Nullable attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
 
     override fun setLayoutManager(layout: LayoutManager?) {
-        if (layout is GridLayoutManager) {
+        if (layout is androidx.recyclerview.widget.GridLayoutManager) {
             val spanSize = layout.spanCount
-            layout.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            layout.spanSizeLookup = object : androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup() {
                 //返回position对应的条目所占的size
                 override fun getSpanSize(position: Int): Int {
                     return if (adapter is HeaderAndFooterAdapter) {

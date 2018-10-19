@@ -1,7 +1,7 @@
 package com.jelly.thor.myrecyclerview.base.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.jelly.thor.myrecyclerview.base.clicklistener.OnClickListener
@@ -13,7 +13,7 @@ import com.jelly.thor.myrecyclerview.base.viewholder.BaseViewHolder
  * 创建人：吴冬冬<br/>
  * 创建时间：2018/8/1 14:55 <br/>
  */
-abstract class RVAdapter<DATA> constructor(protected val mContext: Context, protected val mData: MutableList<DATA>?) : RecyclerView.Adapter<BaseViewHolder>() {
+abstract class RVAdapter<DATA> constructor(protected val mContext: Context, protected val mData: MutableList<DATA>?) : androidx.recyclerview.widget.RecyclerView.Adapter<BaseViewHolder>() {
     /**
      * item点击监听
      */

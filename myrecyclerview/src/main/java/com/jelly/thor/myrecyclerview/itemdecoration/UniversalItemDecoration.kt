@@ -5,9 +5,9 @@ import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.LinearLayout
 
@@ -22,13 +22,13 @@ private const val MODE_LINEAR_VERTICAL = 1
 private const val MODE_GRID_HORIZONTAL = 2
 private const val MODE_GRID_VERTICAL = 3
 class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Color.WHITE),
-                              private val width: Int = 1) : RecyclerView.ItemDecoration() {
+                              private val width: Int = 1) : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
     /**
      * rv manager模式
      */
     private var mMode = MODE_UN_KNOW
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: androidx.recyclerview.widget.RecyclerView, state: androidx.recyclerview.widget.RecyclerView.State) {
         //首先获取manager方式
         initManagerMode(parent)
         //获取当前view的position
@@ -55,7 +55,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
             }
             MODE_GRID_HORIZONTAL -> {
                 //表格布局水平方向
-                val nowGridLM = parent.layoutManager as GridLayoutManager
+                val nowGridLM = parent.layoutManager as androidx.recyclerview.widget.GridLayoutManager
                 //列数
                 val spanCount = nowGridLM.spanCount
                 //总item个数
@@ -101,7 +101,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
             }
             MODE_GRID_VERTICAL -> {
                 //表格布局垂直方向
-                val nowGridLM = parent.layoutManager as GridLayoutManager
+                val nowGridLM = parent.layoutManager as androidx.recyclerview.widget.GridLayoutManager
                 //列数
                 val spanCount = nowGridLM.spanCount
                 //总item个数
@@ -152,17 +152,17 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
     /**
      * 初始化manager模式
      */
-    private fun initManagerMode(parent: RecyclerView) {
+    private fun initManagerMode(parent: androidx.recyclerview.widget.RecyclerView) {
         val nowManager = parent.layoutManager
         mMode = when (nowManager) {
-            is GridLayoutManager -> {
+            is androidx.recyclerview.widget.GridLayoutManager -> {
                 val nowOrientation = nowManager.orientation
                 when (nowOrientation) {
                     LinearLayout.HORIZONTAL -> MODE_GRID_HORIZONTAL
                     else -> MODE_GRID_VERTICAL
                 }
             }
-            is LinearLayoutManager -> {
+            is androidx.recyclerview.widget.LinearLayoutManager -> {
                 val nowOrientation = nowManager.orientation
                 when (nowOrientation) {
                     LinearLayout.HORIZONTAL -> MODE_LINEAR_HORIZONTAL
@@ -173,7 +173,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
         }
     }
 
-    override fun onDraw(canvas: Canvas, parent: RecyclerView, state: RecyclerView.State) {
+    override fun onDraw(canvas: Canvas, parent: androidx.recyclerview.widget.RecyclerView, state: androidx.recyclerview.widget.RecyclerView.State) {
         //根据模式设置divider
         when (mMode) {
             MODE_LINEAR_HORIZONTAL -> {
@@ -193,7 +193,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
     }
 
 
-    private fun drawVertical(canvas: Canvas, parent: RecyclerView) {
+    private fun drawVertical(canvas: Canvas, parent: androidx.recyclerview.widget.RecyclerView) {
         val childCount = parent.childCount
         for (i in 0 until childCount) {
             val childView = parent.getChildAt(i)
@@ -226,7 +226,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
         }
     }
 
-    private fun drawHorizontal(canvas: Canvas, parent: RecyclerView) {
+    private fun drawHorizontal(canvas: Canvas, parent: androidx.recyclerview.widget.RecyclerView) {
         val childCount = parent.childCount
         for (i in 0 until childCount) {
             val child = parent.getChildAt(i);
@@ -260,7 +260,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
         }
     }
 
-    private fun rightRecyclerViewPadding(right: Int, parent: RecyclerView, left: Int): Pair<Int, Int> {
+    private fun rightRecyclerViewPadding(right: Int, parent: androidx.recyclerview.widget.RecyclerView, left: Int): Pair<Int, Int> {
         var right1 = right
         var left1 = left
         if (right1 > parent.width - parent.paddingRight) {
@@ -273,7 +273,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
         return Pair(left1, right1)
     }
 
-    private fun leftRecyclerViewPadding(left: Int, parent: RecyclerView, right: Int): Pair<Int, Int> {
+    private fun leftRecyclerViewPadding(left: Int, parent: androidx.recyclerview.widget.RecyclerView, right: Int): Pair<Int, Int> {
         var left1 = left
         var right1 = right
         if (left1 < parent.paddingLeft) {
@@ -286,7 +286,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
         return Pair(left1, right1)
     }
 
-    private fun bottomRecyclerViewPadding(bottom: Int, parent: RecyclerView, top: Int): Pair<Int, Int> {
+    private fun bottomRecyclerViewPadding(bottom: Int, parent: androidx.recyclerview.widget.RecyclerView, top: Int): Pair<Int, Int> {
         var bottom1 = bottom
         var top1 = top
         if (bottom1 > parent.height - parent.paddingBottom) {
@@ -299,7 +299,7 @@ class UniversalItemDecoration(private val divider: Drawable = ColorDrawable(Colo
         return Pair(bottom1, top1)
     }
 
-    private fun topRecyclerViewPadding(top: Int, parent: RecyclerView, bottom: Int): Pair<Int, Int> {
+    private fun topRecyclerViewPadding(top: Int, parent: androidx.recyclerview.widget.RecyclerView, bottom: Int): Pair<Int, Int> {
         var top1 = top
         var bottom1 = bottom
         if (top1 < parent.paddingTop) {

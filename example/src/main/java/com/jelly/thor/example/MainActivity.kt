@@ -4,11 +4,11 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -23,14 +23,14 @@ import com.jelly.thor.myrecyclerview.base.refreshinterface.RefreshListener
 import com.jelly.thor.myrecyclerview.itemdecoration.UniversalItemDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener {
     val mData = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)
 
     val ll by lazy {
-        LinearLayoutManager(this)
+        androidx.recyclerview.widget.LinearLayoutManager(this)
     }
     val gl by lazy {
-        GridLayoutManager(this, 2)
+        androidx.recyclerview.widget.GridLayoutManager(this, 2)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

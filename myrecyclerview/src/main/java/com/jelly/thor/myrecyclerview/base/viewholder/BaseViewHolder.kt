@@ -1,13 +1,13 @@
 package com.jelly.thor.myrecyclerview.base.viewholder
 
-import androidx.annotation.ColorInt
-import androidx.annotation.DrawableRes
-import androidx.annotation.IdRes
-import androidx.recyclerview.widget.RecyclerView
 import android.util.SparseArray
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
+import androidx.annotation.IdRes
+import androidx.recyclerview.widget.RecyclerView
 import com.jelly.thor.myrecyclerview.annotation.Visibility
 
 /**
@@ -15,7 +15,7 @@ import com.jelly.thor.myrecyclerview.annotation.Visibility
  * 创建人：吴冬冬<br/>
  * 创建时间：2018/8/1 14:56 <br/>
  */
-open class BaseViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+open class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val mOldViewSa: SparseArray<View> = SparseArray()
 
     /**

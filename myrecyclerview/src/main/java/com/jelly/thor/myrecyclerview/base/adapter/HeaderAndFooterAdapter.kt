@@ -1,16 +1,16 @@
 package com.jelly.thor.myrecyclerview.base.adapter
 
-import androidx.recyclerview.widget.RecyclerView
 import android.util.SparseArray
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * 类描述：有头有尾adapter,不对外提供<br/>
  * 创建人：吴冬冬<br/>
  * 创建时间：2018/8/1 14:55 <br/>
  */
-internal class HeaderAndFooterAdapter(internal val mDataAdapter: androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>) : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
+internal class HeaderAndFooterAdapter(internal val mDataAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
         const val REFRESH_HEADER_KEY = 3_000_000
         const val REFRESH_FOOTER_KEY = 5_000_000
@@ -112,7 +112,7 @@ internal class HeaderAndFooterAdapter(internal val mDataAdapter: androidx.recycl
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         //viewType,可能是头，底部，中间数据
         return when {
             mHeaders.indexOfKey(viewType) >= 0 -> //头部
@@ -126,8 +126,8 @@ internal class HeaderAndFooterAdapter(internal val mDataAdapter: androidx.recycl
     /**
      * 创建头部和底部的ViewHolder
      */
-    private fun onCreateHeaderFooterViewHolder(view: View): androidx.recyclerview.widget.RecyclerView.ViewHolder {
-        return object : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {}
+    private fun onCreateHeaderFooterViewHolder(view: View): RecyclerView.ViewHolder {
+        return object : RecyclerView.ViewHolder(view) {}
     }
 
     override fun getItemCount(): Int {
@@ -157,7 +157,7 @@ internal class HeaderAndFooterAdapter(internal val mDataAdapter: androidx.recycl
         return mFooters.keyAt(newFooterPosition)
     }
 
-    override fun onBindViewHolder(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val headerSize = mHeaders.size()
         if (position < headerSize) {
             //如果是头部位置, 不需要绑定数据

@@ -4,23 +4,21 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.SystemClock
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.ItemTouchHelper
 import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.jelly.thor.example.adapter.Adapter
 import com.jelly.thor.myrecyclerview.base.clicklistener.OnClickListener
 import com.jelly.thor.myrecyclerview.base.clicklistener.OnLongClickListener
 import com.jelly.thor.myrecyclerview.base.refreshinterface.RefreshListener
 import com.jelly.thor.myrecyclerview.itemdecoration.UniversalItemDecoration
 import kotlinx.android.synthetic.main.activity_rv.*
-import kotlin.concurrent.thread
 
 /**
  * 类描述：测试RV的activity<br/>
@@ -37,8 +35,8 @@ class RVActivity : AppCompatActivity() {
     }
 
     private fun initRv() {
-        val ll = androidx.recyclerview.widget.LinearLayoutManager(this)
-        ll.orientation = LinearLayout.VERTICAL
+        val ll = LinearLayoutManager(this)
+        ll.orientation = RecyclerView.VERTICAL
         mRv.layoutManager = ll
         val myAdapter = Adapter(this, mData)
 
@@ -160,7 +158,7 @@ class RVActivity : AppCompatActivity() {
         //[RecyclerView的拖动和滑动 第一部分 ：基本的ItemTouchHelper示例](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0630/3123.html)
         //[RecyclerView的拖动和滑动 第二部分 ：拖块，Grid以及自定义动画](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0724/3219.html)
         val a = ItemTouchHelper(object : ItemTouchHelper.Callback() {
-            override fun getMovementFlags(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder): Int {
+            override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
                 /*
                     你需要重写getMovementFlags()方法来指定可以支持的拖放和滑动的方向。
                     使用helperItemTouchHelper.makeMovementFlags(int, int)来构造返回的flag。
@@ -173,7 +171,7 @@ class RVActivity : AppCompatActivity() {
             }
 
             //看自己需求重不重写这个方法
-            override fun onSelectedChanged(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder?, actionState: Int) {
+            override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
                 if (viewHolder == null) {
                     return
                 }
@@ -185,13 +183,13 @@ class RVActivity : AppCompatActivity() {
             }
 
             //同上面一个方法成对出现
-            override fun clearView(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder) {
+            override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
                 super.clearView(recyclerView, viewHolder)
                 //在一个view被拖拽然后被放开的时候被调用，同时也会在滑动被取消或者完成ACTION_STATE_IDLE)的时候被调用。
                 //这里是恢复item view idle状态的典型地方。
             }
 
-            override fun onMove(recyclerView: androidx.recyclerview.widget.RecyclerView, viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, target: androidx.recyclerview.widget.RecyclerView.ViewHolder): Boolean {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                 /*
                     移动完成后执行这个方法
                  */
@@ -202,7 +200,7 @@ class RVActivity : AppCompatActivity() {
                 return true
             }
 
-            override fun onSwiped(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, direction: Int) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 /*
                     侧滑删除完成执行这个方法
                  */

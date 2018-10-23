@@ -4,11 +4,6 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -16,6 +11,10 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jelly.thor.example.adapter.Adapter
 import com.jelly.thor.myrecyclerview.base.clicklistener.OnClickListener
 import com.jelly.thor.myrecyclerview.base.clicklistener.OnLongClickListener
@@ -27,10 +26,10 @@ class MainActivity : AppCompatActivity(), com.google.android.material.navigation
     val mData = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)
 
     val ll by lazy {
-        androidx.recyclerview.widget.LinearLayoutManager(this)
+        LinearLayoutManager(this)
     }
     val gl by lazy {
-        androidx.recyclerview.widget.GridLayoutManager(this, 2)
+        GridLayoutManager(this, 2)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

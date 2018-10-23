@@ -1,14 +1,14 @@
 package com.jelly.thor.myrecyclerview.base
 
 import android.content.Context
-import androidx.annotation.NonNull
-import androidx.annotation.Nullable
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.NonNull
+import androidx.annotation.Nullable
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.jelly.thor.myrecyclerview.base.adapter.HeaderAndFooterAdapter
 import com.jelly.thor.myrecyclerview.utils.CommonUtils
 
@@ -17,7 +17,7 @@ import com.jelly.thor.myrecyclerview.utils.CommonUtils
  * 创建人：吴冬冬<br/>
  * 创建时间：2018/8/16 18:54 <br/>
  */
-open class HeaderAndFooterRV : androidx.recyclerview.widget.RecyclerView {
+open class HeaderAndFooterRV : RecyclerView {
     /**
      * 空布局
      */
@@ -28,9 +28,9 @@ open class HeaderAndFooterRV : androidx.recyclerview.widget.RecyclerView {
     constructor(@NonNull context: Context, @Nullable attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
 
     override fun setLayoutManager(layout: LayoutManager?) {
-        if (layout is androidx.recyclerview.widget.GridLayoutManager) {
+        if (layout is GridLayoutManager) {
             val spanSize = layout.spanCount
-            layout.spanSizeLookup = object : androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup() {
+            layout.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 //返回position对应的条目所占的size
                 override fun getSpanSize(position: Int): Int {
                     return if (adapter is HeaderAndFooterAdapter) {

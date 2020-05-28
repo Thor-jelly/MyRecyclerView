@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 /**
  * 类描述：RecyclerView万能分割线,现在只有2个LayoutManager(线性和表格)<br/>
- * 暂不更新了，如果使用请查看CommontUtils中的万能分割线[https://github.com/Thor-jelly/CommontUtils]
+ * 当前项目的不更新了，如果使用请查看CommontUtils中的最新版万能分割线[https://github.com/Thor-jelly/CommontUtils]
  * 创建人：吴冬冬<br/>
  * 创建时间：2018/7/24 16:48 <br/>
  */
